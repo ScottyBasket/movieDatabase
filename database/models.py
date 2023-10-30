@@ -14,7 +14,7 @@ MAX_NAME_LEN = 64
 
 
 class Movie(models.Model):
-    name = models.CharField('Name', max_length=255, unique=False, blank=False)
+    name = models.CharField('name', max_length=255, unique=False, blank=False)
     barcode = models.IntegerField(
         'Barcode', null=True)
     year = models.DateField('Date', null=True)

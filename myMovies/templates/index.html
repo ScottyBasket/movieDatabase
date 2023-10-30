@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/movie.css" />
+    <title>My Movies</title>
+
+  </head>
+  <body>
+    {% csrf_token %}
+    <main>
+      <div class="flex">
+      {% for i in movies %}
+        <div class="container">
+          <h2>{{i.name}}</h2>
+          <p>{{i.barcode}}</p>
+          <p>{{i.year}}</p>
+          <p>{{i.genre}}</p>
+          <p>{{i.rating}}</p>
+          <p>{{i.runTime}}</p>
+          <p>{{i.director}}</p>
+          <p>{{i.description}}</p>
+        </div>
+      {% endfor %}
+      <div>
+    </main>
+  </body>
+</html>
