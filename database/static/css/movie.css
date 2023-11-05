@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap');
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+:root{
+  --bg: #265159;
+  --font: 'Inter';
+  --font-color:#F5F5F5;
+  --second-white:#a4a4a4c8;
+  --main-color:#1d285d;
+  --main-color2:#272f59b6;
+  --sec-color:#545559;
+  --third-color:#5B6EA6;
+}
+
+body{
+  background-color: var(--bg);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  margin:1em;
+  flex-wrap:wrap;
+}
+
+.container{
+  margin: 1em;
+  padding:.75em 1.5em;
+  width:300px;
+  border-radius: 15px;
+  background-color: var(--sec-color);
+  color:var(--font-color);
+}
+
+.container p, h2{
+  margin: .4em;
+  font-family: 'Inter';
+}
+
+.container h2{
+  text-align: center;
+}
+
+main{
+  margin-top:100px;
+}
+
+nav{
+  width:100vw;
+  height:60px;
+  color:var(--bg);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+li {
+  float: right;
+  font-family: 'Inter';
+  font-size:20px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+  cursor:pointer;
+}
+
+#parameters{
+  width:90vw;
+  height:10px;
+  color:white;
+  font-size:28px;
+  font-family:'Inter';
+  display:block;
+  margin:20px;
+}
+
+#search{
+  background-color: var(--main-color);
+  width:80vw;
+  border-radius:25px;
+  float:left;
+}
+
+#search img{
+  height:40px;
+  width:40px;
+  margin:20px 0 12px 20px;
+  display:inline;
+  float:left;
+}
+
+#searchText{
+  display:inline;
+  height:60px;
+  float:left;
+  margin-top:20px;
+  margin-left:22px;
+  font-size: 35px;
+}
+
+#filters{
+  padding: 20px;
+}
+
+#filters:hover{
+  cursor:pointer;
+}
+
+#filters p{
+  margin-left:85vw;
+}
+
+#filtering{
+  width:100vw;
+  height:100vh;
+  display:inline-block;
+  position:absolute;
+  margin-top:-60px;
+  z-index: 5;
+  background-color: #111;
+  display:none;
+}
+
+#filtering:hover{
+  cursor:pointer;
+}
+
+form{
+  color:white;
+}
+
+form h2{
+  right:1.5em;
+  top:.5em;
+  position:absolute;
+  color:white;
+  z-index:6;
+}
+
+#boxes{
+  display: flex;
+  flex-wrap: wrap;
+  margin:60px;
+}
+
+.names{
+  background-color: #f1f1f1;
+  width: fit-content;
+  padding: 5px 10px;
+  margin:10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+/* checkmarks */
+.filterContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 25px;
+}
+
+/* Hide the browser's default checkbox */
+.filterContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.filterContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.filterContainer input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.filterContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.filterContainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

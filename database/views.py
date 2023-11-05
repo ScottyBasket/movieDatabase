@@ -11,6 +11,8 @@ from .models import Movie
 
 import random
 
+templates = "static/css/style.css"
+
 
 class IndexView(View):
     template_name = 'index.html'
