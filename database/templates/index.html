@@ -12,67 +12,69 @@
   </head>
   <body>
     {% csrf_token %}
+    {% load mathfilters %}
     {% include 'nav.html' %}
-    <div id="filtering">
-      <form>
-        <h2 onclick="off()">x</h2>
-        <div id="boxes">
-          <label class="filterContainer">Christmas
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="filterContainer">Action
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="filterContainer">Horror
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="filterContainer">Thriller
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </form>
-    </div>
     
     <div id="parameters">
-      <div id = "search">
+      <div id="search" onclick="onSearch()" >
         <img src = static/_img/search.png>
         <div id="searchText">
-          <form>
-          <p>Search</p>
-          <form>
+          <form class="floating" method="get">
+            <input type="text" placeholder="Search..." name="name"><br><br>
+          </form>
         </div>
       </div>
-      {% comment %} <div id="filters" onclick="on()">
-        <p>Filters</p>
-      </div> {% endcomment %}
+      <div id="filters" onclick="offSearch()">
+        <p>X</p>
+      </div>
     </div>
 
-    <main>
-      <div class="flex">
-      {% for i in movies %}
+    <div id="searchResults">
+      {% for i in movie_list %}
         <div class="container">
           <h2>{{i.name}}</h2>
+          <p class="secondName" style="text-align:center">{{i.name2}}</p>
           <p>Year: {{i.year}}</p>
           <p>Genre: {{i.genre}}</p>
           <p>Rating: {{i.rating}}</p>
           <p>Score: {{i.score}}</p>
-          <p>Length: {{i.runTime}}</p>
-          <p>Director: {{i.director}}</p>
+          <p>Length: {{i.runTime|div:60|floatformat:0}} Hours {{i.runTime|mod:60}} Minutes</p>
+          <p class="secondName">Director: {{i.director}}</p>
+          <p>Description:</p>
+          <p>{{i.description}}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <main>
+      <div class="flex" id="flex">
+      {% for i in movies %}
+        <div class="container">
+          <h2>{{i.name}}</h2>
+          <p class="secondName" style="text-align:center">{{i.name2}}</p>
+          <p>Year: {{i.year}}</p>
+          <p>Genre: {{i.genre}}</p>
+          <p>Rating: {{i.rating}}</p>
+          <p>Score: {{i.score}}</p>
+          <p>Length: {{i.runTime|div:60|floatformat:0}} Hours {{i.runTime|mod:60}} Minutes</p>
+          <p class="secondName">Director: {{i.director}}</p>
+          <p>Description:</p>
           <p>{{i.description}}</p>
         </div>
       {% endfor %}
       <div>
     </main>
     <script>
-      function on(){
-        document.getElementById("filtering").style.display = 'block'
+
+      function onSearch(){
+        document.getElementById("searchText").style.display = 'inline';
+        document.getElementById("flex").style.display = 'none';
+        document.getElementById("filters").style.display = 'block';
       }
-      function off(){
-        document.getElementById("filtering").style.display = 'none'
+      function offSearch(){
+        document.getElementById("searchText").style.display = 'none';
+        document.getElementById("flex").style.display = 'flex';
+        document.getElementById("filters").style.display = 'none';
       }
     </script>
   </body>
