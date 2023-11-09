@@ -27,12 +27,26 @@ class IndexView(ListView):
         }
         return render(request, self.template_name, context)
 
-    def get_queryset(self):
-        query = self.request.GET.get("name")
-        movie_list = Movie.objects.filter(
-            Q(name__icontains=query)
+
+class SearchResultsView(ListView):
+    model = Movie
+    template_name = 'results.html'
+
+    def get_queryset(self):  # new
+        query = self.request.GET.get("q")
+        object_list = Movie.objects.filter(
+            Q(name__icontains=query) | Q(
+                genre__icontains=query) | Q(barcode__icontains=query) | Q(rating__icontains=query)
         )
-        return movie_list
+        return object_list
+
+
+class Landing(View):
+    template_name = 'landing.html'
+
+    def get(self, request):
+        context = {}
+        return render(request, self.template_name, context)
 
 
 def index(request):

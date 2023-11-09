@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static '/css/movie.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/home.css' %}" rel="stylesheet" type="text/css">
+    <title>My Movies</title>
+
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    {% csrf_token %}
+    <div id="hero">
+    </div>
+    <div id="hover">
+        <h1>Eli's Movie Website</h1>
+    </div>
+    
+  </body>
+</html>
