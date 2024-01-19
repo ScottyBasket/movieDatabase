@@ -10,15 +10,16 @@
   --bg: #265159;
   --font: 'Inter';
   --font-color:#F5F5F5;
-  --second-white:#a4a4a4c8;
+  --second-white:#8c2e2ec8;
   --main-color:#1d285d;
   --main-color2:#272f59b6;
   --sec-color:#142114;
   --third-color:#5B6EA6;
+  --nav-background:#9F0111;
 }
 
 body{
-  background-color: var(--bg);
+  background-color: var(--sec-color);
 }
 
 .flex {
@@ -33,7 +34,7 @@ body{
   padding:.75em 1.5em;
   width:300px;
   border-radius: 15px;
-  background-color: var(--sec-color);
+  background-color: var(--second-white);
   color:var(--font-color);
 }
 
@@ -52,8 +53,8 @@ main{
 
 nav{
   width:100vw;
-  height:60px;
-  color:var(--bg);
+  height:50px;
+  background-color:var(--nav-background);
 }
 
 ul {
@@ -61,7 +62,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--bg);
+  background-color: var(--nav-background);
 }
 
 li {
@@ -80,6 +81,7 @@ li a {
 
 li a:hover {
   background-color: #111;
+  opacity: .5;
   cursor:pointer;
 }
 
@@ -94,7 +96,6 @@ li a:hover {
 }
 
 #search{
-  background-color: var(--main-color);
   width: 75px;
   height:75px;
   border-radius:50px;
@@ -129,7 +130,7 @@ li a:hover {
   border-radius: 15px;
   color:white;
   font-size:24px;
-  background-color: var(--main-color);
+  background-color: var(--second-white);
   padding-left:10px;
   margin: 2em auto;
   width:95vw;
@@ -263,4 +264,41 @@ form h2{
 
 .secondName{
   padding-bottom:1em;
+}
+
+
+h1{
+  margin: 0 auto;
+  width:fit-content;
+  font-family:'Inter';
+  z-index: 2;
+  font-size:50px;
+}
+
+#hero{
+  width:100vw;
+  height:50vh;
+  background-image: url(/static/_img/movieTheater.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: 0;
+}
+
+#hover {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+  border-radius:15px;
 }

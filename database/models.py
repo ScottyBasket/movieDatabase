@@ -28,4 +28,8 @@ class Movie(models.Model):
     description = models.CharField('Description', max_length=255, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name    
+    
+    def getCount(self):
+        count = len(Movie)
+        return self.count

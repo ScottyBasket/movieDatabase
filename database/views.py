@@ -36,7 +36,7 @@ class SearchResultsView(ListView):
         query = self.request.GET.get("q")
         object_list = Movie.objects.filter(
             Q(name__icontains=query) | Q(
-                genre__icontains=query) | Q(barcode__icontains=query) | Q(rating__icontains=query)
+                genre__icontains=query) | Q(barcode__icontains=query) | Q(rating__icontains=query) | Q(name2__icontains=query)
         )
         return object_list
 

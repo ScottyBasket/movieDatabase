@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{% static '/css/movie.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'static/css/movie.css' %}" rel="stylesheet" type="text/css">
     <title>My Movies</title>
 
   </head>
@@ -14,6 +14,12 @@
     {% csrf_token %}
     {% load mathfilters %}
     {% include 'nav.html' %}
+
+    <div id="hero">
+    </div>
+    <div id="hover">
+        <h1>Eli's Movie's</h1>
+    </div>
     
     <div id="parameters">
       <div id="search" onclick="onSearch()" >
@@ -25,11 +31,11 @@
         </div>
       </div>
       <div id="filters" onclick="offSearch()">
-        <p>X</p>
+        <p action="{% url 'home' %}">X</p>
       </div>
     </div>
 
-    <main>
+    <main id="main">
       <div class="flex" id="flex">
       {% for i in movies %}
         <div class="container">
@@ -48,11 +54,12 @@
       <div>
     </main>
     <script>
-
       function onSearch(){
         document.getElementById("searchText").style.display = 'inline';
         document.getElementById("flex").style.display = 'none';
         document.getElementById("filters").style.display = 'block';
+        document.getElementById("hero").style.display = 'none'
+        document.getElementById("hover").style.display = 'none'
       }
       function offSearch(){
         document.getElementById("searchText").style.display = 'none';
